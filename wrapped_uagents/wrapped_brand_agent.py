@@ -1,5 +1,6 @@
 from datetime import datetime
 from brand_agent.main import build_main_graph
+from uagents import Model 
 from langchain_core.load import dumps
 from brand_agent.brand_agent_helpers import *
 from utils.chat_helpers import *
@@ -23,7 +24,7 @@ load_dotenv()
 agent = Agent(
     name="Ryans Brand Agent",
     seed=os.getenv("BRAND_AGENT_SEED"),
-    port=8002,
+    port=8080,
     mailbox=True,
 )
 
@@ -82,6 +83,15 @@ async def handle_message(ctx: Context, sender: str, msg: ChatMessage):
     # endregion
 
 
+class Response(Model):
+    text: str
+
+@agent.on_rest_get("/", Response)
+async def handle_get(ctx: Context):
+    ctx.logger.info("Received GET request")
+    return {
+        "text": "Hello from the Brand Agent Get handler!",
+    }
 @protocol.on_message(ChatAcknowledgement)
 async def handle_ack(ctx: Context, sender: str, msg: ChatAcknowledgement):
     pass
