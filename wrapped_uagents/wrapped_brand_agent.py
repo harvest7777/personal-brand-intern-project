@@ -24,7 +24,7 @@ load_dotenv()
 agent = Agent(
     name="Ryans Brand Agent",
     seed=os.getenv("BRAND_AGENT_SEED"),
-    port=8080,
+    port=8081,
     mailbox=True,
 )
 
@@ -92,6 +92,7 @@ async def handle_get(ctx: Context):
     return {
         "text": "Hello from the Brand Agent Get handler!",
     }
+
 @protocol.on_message(ChatAcknowledgement)
 async def handle_ack(ctx: Context, sender: str, msg: ChatAcknowledgement):
     pass

@@ -31,17 +31,7 @@ def end_agent(state: AgentState):
     return {"current_agent": "", "current_step": "", "messages": [AIMessage(content="Gotcha, goodbye!")]}
 
 def fallback_agent(state: AgentState):
-    default_message = """
-    Hm. I can't help you with that. As your personal brand ingester, I can...
-    \n
-    - Onboard you as a user
-    - Deploy your personal brand agent
-    - Ingest facts from your resume
-    - Help you manage your data
-    - Connect your LinkedIn
-    \n 
-    Let me know what you'd like to do!
-    """
+    default_message = "Hm. I can't help you with that. As your personal brand data orchestrator, I can...\n- Onboard you as a user\n- Deploy your personal brand agent\n- Ingest facts from your resume\n- Help you manage your data\n- Connect your LinkedIn\n\nLet me know what you'd like to do!"
     return {
         "messages": [AIMessage(content=default_message)],
         "current_agent": "",
