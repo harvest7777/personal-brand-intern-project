@@ -1,5 +1,9 @@
 # Getting Started
 
+## Slides
+
+[Presentation Slides](https://docs.google.com/presentation/d/1Um2kYkj-oJ8d-XHGb2UuVz_AkN2o4hIGoc_y3RN93mA/edit?usp=sharing)
+
 ## Prerequisites
 
 - **Supabase CLI**: You'll need the Supabase CLI installed. If you don't have it yet, follow the [installation guide](https://supabase.com/docs/guides/cli/getting-started).

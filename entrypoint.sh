@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# Start chroma server in the background
+# Start local chroma server in the background
 chroma run --path ./chroma &
 
 # Start the wrapped agent
