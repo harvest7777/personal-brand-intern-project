@@ -38,8 +38,8 @@ pip install -r requirements.txt
 
 3. Once started, you'll see connection details for your local Supabase instance including:
    - API URL
-   - Database URL
    - Studio URL (for the Supabase dashboard)
+   - Secret for making db requests
 
 ### 3. Starting Chroma
 
@@ -64,3 +64,25 @@ python -m wrapped_uagents.wrapped_brand_agent
 ## Interacting with Agents
 
 Once your agents are running, you can interact with them via [asi:one](https://asi1.ai/chat). Simply @ mention your agent's ID in the chat to start a conversation with them. The agent ID will be displayed when you start the agent.
+
+## Docker
+
+Start supabase
+
+```
+supabase start
+```
+
+Build the image
+
+```
+docker build -f Dockerfile -t wrapped-data-management-agent .
+```
+
+Run it
+
+```
+docker run --env-file .env -p 8080:8080 wrapped-data-management-agent:latest
+```
+
+Note this app is meant to only containerize the data management agent. Users of the personal brand agent are meant to deploy themselevs, thus there is no docker setup for it.
